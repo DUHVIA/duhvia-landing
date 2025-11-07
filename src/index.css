@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+/* =========================
+   DUHVIA — THEME (logo + paleta)
+   ========================= */
+@theme {
+  /* Base + superficie (azul-gris como en tu paleta) */
+  --color-bg: #0f1518;           /* fondo muy oscuro para contraste (look del logo) */
+  --color-surface: #1b2429;      /* tarjeta/blocks (oscuro pero no negro) */
+  --color-surface-2: #223039;    /* superficies secundarias / hover */
+
+  /* Texto */
+  --color-text: #F5F5F5;         /* F5F5F5 x2 */
+  --color-subtle: color-mix(in oklab, var(--color-text) 65%, transparent);
+
+  /* Acentos (púrpura + aguamarina / verde-menta) */
+  --color-primary: #6D55FF;      /* púrpura principal */
+  --color-primary-soft: #8F7FFF; /* púrpura suave */
+  --color-accent: #1AE6C8;       /* turquesa principal */
+  --color-accent-2: #35C7B3;     /* turquesa 2 (degradé / hover) */
+
+  /* Azul-gris de la paleta (útil para bordes y detalles) */
+  --color-steel: #455A64;
+  --color-steel-2: #607D8B;
+}
+
+/* ====== BASE ====== */
+html, body, #root {
+  height: 100%;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Inter", "Segoe UI", Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+/* ====== UTILIDADES (reusan el tema) ====== */
+.section { @apply max-w-6xl mx-auto px-4 md:px-6 lg:px-8; }
+.card    { @apply rounded-2xl p-6 border shadow-[0_12px_32px_rgb(0_0_0/0.25)];
+           background: var(--color-surface);
+           border-color: color-mix(in oklab, var(--color-steel-2) 18%, transparent); }
+
+.h1      { @apply text-4xl md:text-6xl font-extrabold tracking-tight; }
+.h2      { @apply text-2xl md:text-4xl font-bold; }
+.subtle  { color: var(--color-subtle); }
+
+.btn          { @apply inline-flex items-center gap-2 px-5 py-3 rounded-xl font-medium transition-transform hover:-translate-y-0.5; }
+.btn-primary  { background: linear-gradient(135deg, var(--color-primary), var(--color-primary-soft)); color:#fff; }
+.btn-primary:hover { filter: brightness(1.05); }
+.btn-secondary{ background:#fff; color: var(--color-bg); }
+.badge        { @apply inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full border;
+                background: color-mix(in oklab, var(--color-surface-2) 75%, transparent);
+                border-color: color-mix(in oklab, var(--color-steel-2) 25%, transparent); }
+
+/* ====== HERO: gradient y brillos con tus colores ====== */
+.gradient-hero {
+  background:
+    radial-gradient(1200px 600px at 10% -10%, color-mix(in oklab, var(--color-primary-soft) 35%, transparent), transparent),
+    radial-gradient(900px 500px  at 90%  10%, color-mix(in oklab, var(--color-accent) 28%, transparent), transparent);
+}
+
+.glow { position:absolute; filter: blur(50px); opacity:.55; pointer-events:none; }
+.glow--primary   { width:360px; height:360px; background: var(--color-primary); top:-60px; left:-60px; }
+.glow--secondary { width:320px; height:320px; background: var(--color-accent);  top:40%; right:-80px; }
+
+/* ====== FLOTANTES DECORATIVOS ====== */
+@keyframes floaty { 0%{transform:translateY(0)} 50%{transform:translateY(-14px)} 100%{transform:translateY(0)} }
+.floater { animation: floaty 5s ease-in-out infinite; }
+.floater-delay { animation-delay: .9s; }
+
+/* ====== MARQUEE ====== */
+.marquee { display:flex; overflow:hidden; gap:2.5rem; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
+.marquee__inner { display:flex; gap:2.5rem; animation: scroll 23s linear infinite; }
+@keyframes scroll { from {transform: translateX(0)} to {transform: translateX(-50%)} }
+
+/* ====== STATS ====== */
+@keyframes pulseSoft { 0%,100% {transform: scale(1)} 50% {transform: scale(1.03)} }
+.stat { animation: pulseSoft 4.5s ease-in-out infinite; }
+
+/* ====== TABLE ====== */
+.table { @apply w-full border-separate border-spacing-y-2; }
+.th    { @apply text-left text-sm pb-1; color: color-mix(in oklab, var(--color-text) 70%, transparent); }
+.td    { @apply rounded-xl p-4 align-top; background: color-mix(in oklab, var(--color-surface) 80%, var(--color-surface-2)); }
+
+/* ====== BORDES/DETALLES CON AZUL-GRIS ====== */
+.border-steel { border-color: color-mix(in oklab, var(--color-steel) 35%, transparent); }
+.text-accent  { color: var(--color-accent); }
+.text-primary { color: var(--color-primary); }
+.bg-accent    { background: var(--color-accent); }
+.bg-primary   { background: var(--color-primary); }
+
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(109,85,255,0.25), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
