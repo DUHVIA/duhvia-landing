@@ -1,31 +1,50 @@
+# ===========================================
+# DUHVIA — React + TypeScript + Vite + Tailwind v4
+# ===========================================
+
 # Node
 node_modules/
-dist/
-.vite/
-.vite-cache/
-
-# Logs
 npm-debug.log*
 yarn-debug.log*
+yarn-error.log*
 pnpm-debug.log*
+package-lock.json
+.pnpm-debug.log
 
-# Env / secrets
-.env
-.env.*
-!.env.example
-
-# Build outputs
+# Dist (Build)
+dist/
+build/
+.temp/
 .cache/
-.build/
-.out/
-tmp/
 
-# IDE / sistema
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Editor
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
 
-# Deployment
-.vercel/
-.netlify/
+# Tests / Coverage
+coverage/
+*.lcov
+jest-html-reporters-*
+
+# Logs
+*.log
+logs/
+debug.log
+npm-debug.log*
+yarn-debug.log*
+
+# Tailwind JIT
+*.tailwind.css
+*.postcss-cache.json
+
+# OS
+*.swp
+*.swo
+*~
