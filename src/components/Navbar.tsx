@@ -15,78 +15,84 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur bg-[var(--color-bg)]/80 border-b border-[var(--color-steel)]/40">
-      <nav className="section flex items-center justify-between h-16">
-        
-        {/* ===== LOGO DUHVIA ===== */}
-        <Link to="/" className="flex items-center gap-3 group">
-          <img
-            src="/logo-duhvia.png"
-            alt="DUHVIA Logo"
-            className="h-9 w-auto transition-transform duration-300 group-hover:scale-105"
-          />
-          <span className="font-bold text-lg tracking-wide">
-            <span className="text-accent">DUH</span>
-            <span className="text-primary">VIA</span>
-          </span>
-        </Link>
-
-        {/* ===== MENU DESKTOP ===== */}
-        <div className="hidden md:flex items-center gap-6">
-          {links.map((l) => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              className={({ isActive }) =>
-                `text-sm transition ${
-                  isActive
-                    ? "text-white font-medium"
-                    : "text-white/70 hover:text-white"
-                }`
-              }
-            >
-              {l.label}
-            </NavLink>
-          ))}
-          <Link to="/contacto" className="btn btn-primary shadow-md hover:shadow-lg">
-            ¡Hablemos!
+    <>
+      {/* ===== NAVBAR LIMPIO SIN EFECTOS NI MARCOS ===== */}
+      <header className="fixed top-0 left-0 w-full z-50 bg-[rgba(15,21,24,0.8)] backdrop-blur-lg">
+        <nav className="section flex items-center justify-between h-16">
+          
+          {/* ===== LOGO DUHVIA ===== */}
+          <Link to="/" className="flex items-center gap-3 group">
+            <img
+              src="/logo-duhvia.png"
+              alt="DUHVIA Logo"
+              className="h-9 w-auto transition-transform duration-300 group-hover:scale-105"
+            />
+            <span className="font-bold text-lg tracking-wide">
+              <span className="text-accent">DUH</span>
+              <span className="text-primary">VIA</span>
+            </span>
           </Link>
-        </div>
 
-        {/* ===== MENU MOBILE ===== */}
-        <button
-          className="md:hidden p-2 text-white/90 hover:text-accent transition"
-          onClick={() => setOpen(!open)}
-          aria-label="Abrir menú"
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </nav>
-
-      {/* ===== MOBILE MENU DROPDOWN ===== */}
-      {open && (
-        <div className="md:hidden border-t border-[var(--color-steel)]/40 bg-[var(--color-surface)]/95 backdrop-blur-md">
-          <div className="section py-5 flex flex-col gap-4">
+          {/* ===== MENU DESKTOP ===== */}
+          <div className="hidden md:flex items-center gap-7">
             {links.map((l) => (
               <NavLink
                 key={l.to}
                 to={l.to}
-                onClick={() => setOpen(false)}
-                className="text-white/85 hover:text-accent text-sm"
+                className={({ isActive }) =>
+                  `text-sm transition font-medium ${
+                    isActive
+                      ? "text-white"
+                      : "text-white/70 hover:text-accent"
+                  }`
+                }
               >
                 {l.label}
               </NavLink>
             ))}
-            <Link
-              to="/contacto"
-              onClick={() => setOpen(false)}
-              className="btn btn-primary mt-2 w-fit"
-            >
+            <Link to="/contacto" className="btn btn-primary text-sm">
               ¡Hablemos!
             </Link>
           </div>
-        </div>
-      )}
-    </header>
+
+          {/* ===== MENU MOBILE ===== */}
+          <button
+            className="md:hidden p-2 text-white/90 hover:text-accent transition"
+            onClick={() => setOpen(!open)}
+            aria-label="Abrir menú"
+          >
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </nav>
+
+        {/* ===== MENU MOBILE DROPDOWN ===== */}
+        {open && (
+          <div className="md:hidden bg-[rgba(15,21,24,0.95)] backdrop-blur-md">
+            <div className="section py-5 flex flex-col gap-4">
+              {links.map((l) => (
+                <NavLink
+                  key={l.to}
+                  to={l.to}
+                  onClick={() => setOpen(false)}
+                  className="text-white/85 hover:text-accent text-sm"
+                >
+                  {l.label}
+                </NavLink>
+              ))}
+              <Link
+                to="/contacto"
+                onClick={() => setOpen(false)}
+                className="btn btn-primary mt-2 w-fit"
+              >
+                ¡Hablemos!
+              </Link>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* ===== ESPACIADOR PARA EVITAR TAPAR CONTENIDO ===== */}
+      <div aria-hidden className="h-16" />
+    </>
   );
 }
