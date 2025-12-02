@@ -33,8 +33,7 @@ export default function Home() {
                 DUHVIA:
                 <span className="absolute inset-0 blur-2xl opacity-50 bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-accent)] to-[var(--color-primary-soft)] -z-10 animate-pulse"></span>
               </span>{" "}
-              <span className="text-gradient">innovación digital</span> que
-              convierte ideas en <span className="text-glow">experiencias</span>.
+              <span className="text-gradient">Soluciones tecnológicas</span> y estrategia digital de alto <span className="text-glow">impacto</span>.
             </h1>
 
             <p className="subtle mt-6 text-lg leading-relaxed">

@@ -1,5 +1,5 @@
 export default function LogosMarquee() {
-  const logos = ["Acme", "Andes", "Nova", "Menta", "Qhapaq", "Andino", "Vulcano"];
+  const logos = ["Kotlin", "Python", "React", "Android", "SQL", "Figma", "Google Analytics", "Django", "TypeScript", "Node.js", "Docker", "AWS"];
   return (
     <div className="my-10">
       <div className="marquee">
@@ -16,7 +16,7 @@ export default function LogosMarquee() {
           ))}
         </div>
       </div>
-      <p className="text-center subtle mt-4 text-sm">Marcas y equipos que inspiran nuestros estándares</p>
+      <p className="text-center subtle mt-4 text-sm">Stack tecnológico y herramientas que potencian nuestros desarrollos</p>
     </div>
   );
 }
