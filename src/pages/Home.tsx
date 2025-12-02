@@ -37,16 +37,15 @@ export default function Home() {
             </h1>
 
             <p className="subtle mt-6 text-lg leading-relaxed">
-              Creamos sitios web ultra rápidos, plataformas a medida y contenido
-              TikTok que conecta con audiencias reales.
+              Especialistas en desarrollo de software a medida, plataformas web de alto rendimiento y posicionamiento de marca en canales digitales modernos.
               <span className="block mt-1">
-                Tecnología + Diseño + Estrategia = Resultados.
+                Ingeniería de software robusta, diseño funcional y estrategia escalable.
               </span>
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/contacto" className="btn btn-primary">
-                ¡Quiero iniciar mi proyecto!
+                Agendar una consultoría
               </Link>
               <Link to="/portafolio" className="btn btn-secondary">
                 Ver portafolio
