@@ -1,14 +1,8 @@
-import type { FormEvent } from "react";
 import { Mail, MapPin, Phone, Send, ArrowUpRight, Sparkles } from "lucide-react";
 import { socialLinks } from "../data/socials";
 
 export default function Footer() {
   const year = new Date().getFullYear();
-
-  const onSubscribe = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    alert("¡Gracias! Te avisaremos de las novedades de DUHVIA ✨");
-  };
 
   return (
     <footer className="relative overflow-hidden bg-[#0a0f12]">
@@ -88,33 +82,27 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* === Columna 3: Newsletter === */}
+            {/* === Columna 3: CTA WhatsApp === */}
             <div>
               <h5 className="mb-3 font-semibold flex items-center gap-2 text-white/90">
                 <Sparkles size={18} className="text-[var(--color-accent)]" />
-                Mantente al día
+                ¿Tienes una idea?
               </h5>
               <p className="subtle text-sm">
-                Recibe inspiración, lanzamientos y tendencias digitales.
+                No dejes pasar el tiempo. Convirtamos esa idea en un proyecto tangible hoy mismo.
               </p>
 
-              <form onSubmit={onSubscribe} className="mt-4">
-                <div className="flex overflow-hidden rounded-xl border border-white/10 bg-[var(--color-surface)]/70 backdrop-blur">
-                  <input
-                    type="email"
-                    required
-                    placeholder="tu@email.com"
-                    className="flex-1 bg-transparent px-3 py-2 text-sm outline-none placeholder:text-white/50"
-                  />
-                  <button
-                    type="submit"
-                    className="px-3 py-2 text-sm bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-accent)] text-[var(--color-bg)] hover:brightness-110 transition flex items-center gap-2"
-                  >
-                    <Send size={16} />
-                    Enviar
-                  </button>
-                </div>
-              </form>
+              <div className="mt-4">
+                <a
+                  href={socialLinks.whatsapp.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-accent)] px-4 py-3 text-sm font-medium text-[var(--color-bg)] transition-transform hover:-translate-y-0.5 hover:brightness-110"
+                >
+                  <Send size={16} />
+                  Cotizar por WhatsApp
+                </a>
+              </div>
 
               <div className="mt-6 space-y-2 text-sm">
                 <a
@@ -124,9 +112,7 @@ export default function Footer() {
                   <Mail size={16} /> {socialLinks.email.email}
                 </a>
                 <a
-                  href={socialLinks.whatsapp.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`tel:+51${socialLinks.whatsapp.number}`}
                   className="flex items-center gap-2 text-white/85 hover:text-accent transition"
                 >
                   <Phone size={16} /> +51 {socialLinks.whatsapp.number}
