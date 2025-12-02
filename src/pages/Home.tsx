@@ -8,6 +8,7 @@ import { services } from "../data/services";
 import { testimonials } from "../data/testimonials";
 import { Link } from "react-router-dom";
 import { ArrowUp } from "lucide-react";
+import { socialLinks } from "../data/socials";
 
 export default function Home() {
   return (
@@ -51,6 +52,43 @@ export default function Home() {
               <Link to="/portafolio" className="btn btn-secondary">
                 Ver portafolio
               </Link>
+            </div>
+
+            {/* Redes Sociales Hero */}
+            <div className="mt-10 flex items-center gap-4">
+              <span className="text-sm font-medium text-white/60">Síguenos:</span>
+              <div className="flex gap-3">
+                {[socialLinks.tiktok, socialLinks.facebook, socialLinks.instagram].map((social) => {
+                  const Icon = (social as any).Icon;
+                  return (
+                    <a
+                      key={social.name}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 transition-all hover:bg-white/10 hover:scale-110 hover:border-[var(--color-accent)]"
+                      aria-label={social.name}
+                    >
+                      {"iconPath" in social ? (
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="h-5 w-5 text-white/80 transition-colors group-hover:text-[var(--color-accent)]"
+                        >
+                          <path d={(social as any).iconPath} />
+                        </svg>
+                      ) : (
+                        Icon && (
+                          <Icon
+                            size={20}
+                            className="text-white/80 transition-colors group-hover:text-[var(--color-accent)]"
+                          />
+                        )
+                      )}
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </motion.div>
 
@@ -133,9 +171,8 @@ export default function Home() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.7 }}
                   viewport={{ once: true }}
-                  className={`relative bg-[var(--color-surface)]/60 backdrop-blur-lg border border-white/10 rounded-2xl p-6 shadow-[0_8px_32px_rgb(0_0_0/0.3)] ${
-                    i % 2 === 0 ? "md:mr-20" : "md:ml-20"
-                  }`}
+                  className={`relative bg-[var(--color-surface)]/60 backdrop-blur-lg border border-white/10 rounded-2xl p-6 shadow-[0_8px_32px_rgb(0_0_0/0.3)] ${i % 2 === 0 ? "md:mr-20" : "md:ml-20"
+                    }`}
                 >
                   <div className="absolute -left-3 top-6 w-6 h-6 rounded-full bg-[var(--color-accent)] shadow-[0_0_15px_var(--color-accent)]" />
                   <div className="text-sm font-bold text-[var(--color-accent)]">

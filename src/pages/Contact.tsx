@@ -1,5 +1,6 @@
 import SectionHeader from "../components/SectionHeader";
 import FAQ from "../components/FAQ";
+import { socialLinks } from "../data/socials";
 
 export default function Contact() {
   const faqs = [
@@ -30,7 +31,7 @@ export default function Contact() {
           </div>
           <div>
             <label className="text-sm">Mensaje</label>
-            <textarea rows={5} className="mt-1 w-full bg-white/5 rounded-lg px-3 py-2 outline-none" placeholder="Cuéntanos brevemente tu proyecto..."/>
+            <textarea rows={5} className="mt-1 w-full bg-white/5 rounded-lg px-3 py-2 outline-none" placeholder="Cuéntanos brevemente tu proyecto..." />
           </div>
           <button className="btn btn-primary" type="button">Enviar mensaje</button>
           <p className="subtle text-xs">* Integraremos envío real con Formspree / Resend o un micro-backend.</p>
@@ -39,10 +40,20 @@ export default function Contact() {
         <div className="space-y-6">
           <div className="card">
             <h3 className="text-xl font-semibold">También puedes escribirnos</h3>
-            <ul className="subtle mt-3 space-y-2">
-              <li><b>Email:</b> hola@duhvia.com</li>
-              <li><b>WhatsApp:</b> +51 9XX XXX XXX</li>
-              <li><b>Ubicación:</b> Arequipa, Perú</li>
+            <ul className="subtle mt-3 space-y-3">
+              <li>
+                <a href={socialLinks.email.url} className="flex items-center gap-2 hover:text-[var(--color-accent)] transition-colors">
+                  <span className="font-bold text-white">Email:</span> {socialLinks.email.email}
+                </a>
+              </li>
+              <li>
+                <a href={socialLinks.whatsapp.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[var(--color-accent)] transition-colors">
+                  <span className="font-bold text-white">WhatsApp:</span> +51 {socialLinks.whatsapp.number}
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="font-bold text-white">Ubicación:</span> Arequipa, Perú
+              </li>
             </ul>
           </div>
           <FAQ items={faqs} />

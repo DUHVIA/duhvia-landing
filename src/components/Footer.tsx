@@ -1,5 +1,6 @@
 import type { FormEvent } from "react";
 import { Mail, MapPin, Phone, Send, ArrowUpRight, Sparkles } from "lucide-react";
+import { socialLinks } from "../data/socials";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -19,7 +20,7 @@ export default function Footer() {
       <div className="relative bg-[linear-gradient(180deg,#0b1013_0%,#0a0e10_50%,#06090b_100%)] border-t border-white/5">
         <div className="section py-14 md:py-16">
           <div className="grid gap-12 lg:grid-cols-5">
-            
+
             {/* === Columna 1: Marca === */}
             <div className="lg:col-span-2">
               <div className="flex items-center gap-3">
@@ -117,20 +118,51 @@ export default function Footer() {
 
               <div className="mt-6 space-y-2 text-sm">
                 <a
-                  href="mailto:hola@duhvia.com"
+                  href={socialLinks.email.url}
                   className="flex items-center gap-2 text-white/85 hover:text-accent transition"
                 >
-                  <Mail size={16} /> hola@duhvia.com
+                  <Mail size={16} /> {socialLinks.email.email}
                 </a>
                 <a
-                  href="tel:+51999999999"
+                  href={socialLinks.whatsapp.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 text-white/85 hover:text-accent transition"
                 >
-                  <Phone size={16} /> +51 999 999 999
+                  <Phone size={16} /> +51 {socialLinks.whatsapp.number}
                 </a>
                 <div className="flex items-center gap-2 text-white/70">
                   <MapPin size={16} /> Arequipa, Perú
                 </div>
+              </div>
+
+              {/* Redes Sociales Footer */}
+              <div className="mt-6 flex gap-3">
+                {[socialLinks.tiktok, socialLinks.facebook, socialLinks.instagram].map((social) => {
+                  const Icon = (social as any).Icon;
+                  return (
+                    <a
+                      key={social.name}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 border border-white/10 transition-all hover:bg-[var(--color-accent)] hover:text-[var(--color-bg)] hover:scale-110"
+                      aria-label={social.name}
+                    >
+                      {"iconPath" in social ? (
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="h-4 w-4"
+                        >
+                          <path d={(social as any).iconPath} />
+                        </svg>
+                      ) : (
+                        Icon && <Icon size={16} />
+                      )}
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </div>
