@@ -157,11 +157,11 @@ export default function Footer() {
           <div className="mt-10 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
           <div className="mt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/60">
             <p>© {year} DUHVIA. Innovación digital con propósito.</p>
-            <div className="flex gap-4">
+            {/* <div className="flex gap-4">
               <a href="/privacidad" className="hover:text-accent transition">Privacidad</a>
               <a href="/terminos" className="hover:text-accent transition">Términos</a>
               <a href="/cookies" className="hover:text-accent transition">Cookies</a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

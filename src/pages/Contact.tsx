@@ -30,7 +30,7 @@ export default function Contact() {
         setShowModal(false);
         navigate("/");
         window.scrollTo({ top: 0, behavior: "smooth" });
-      }, 4000); // 4 segundos para leer el mensaje
+      }, 7000); // 7 segundos para leer el mensaje
 
       return () => clearTimeout(timer);
     }

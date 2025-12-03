@@ -1,9 +1,9 @@
 export default function StatsStrip() {
   const stats = [
-    { k: "Proyectos", v: "24+" },
-    { k: "Sectores", v: "12" },
-    { k: "Tiempo promedio de entrega", v: "3-6 semanas" },
-    { k: "Retorno percibido", v: "↑ ROI 25–180%" },
+    { k: "Proyectos", v: "24 +" },
+    { k: "Sectores", v: "10" },
+    { k: "Tiempo promedio de entrega", v: "4 - 6 semanas" },
+    { k: "Soporte post-venta", v: "Garantizado" },
   ];
   return (
     <div className="grid md:grid-cols-4 gap-4 mt-10">

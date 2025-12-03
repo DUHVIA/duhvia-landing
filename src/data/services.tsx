@@ -11,38 +11,38 @@ export type Service = {
 export const services: Service[] = [
   {
     icon: Code2,
-    title: "Desarrollo Web de Alto Impacto",
-    desc: "Sitios ultra rápidos, accesibles y con SEO técnico. Performance, arquitectura limpia y escalabilidad.",
-    bullets: ["Landing & corporativos", "Micro-sitios de campaña", "Web apps con autenticación", "Integraciones (APIs, CRM)"]
+    title: "Desarrollo Web Corporativo",
+    desc: "Construcción de portales y aplicaciones web bajo estándares de seguridad y rendimiento. Arquitectura limpia orientada al mantenimiento.",
+    bullets: ["Webs corporativas y Landings", "Desarrollo de Aplicaciones Web (SPA)", "Integración de APIs y CRM"]
   },
   {
     icon: ShoppingCart,
-    title: "E-commerce que Convierte",
-    desc: "Tiendas con carrito, pagos seguros y analítica. Catálogo administrable y experiencia de compra impecable.",
-    bullets: ["Checkout optimizado", "Integración pasarelas (Culqi/Stripe)", "Catálogo y stock", "Email transaccional"]
+    title: "Soluciones de Comercio Electrónico",
+    desc: "Implementación de canales de venta online seguros y funcionales. Gestión de pasarelas de pago y sincronización de inventarios.",
+    bullets: ["Pasarelas de pago (Culqi/Stripe)", "Gestión de catálogo y stock", "Seguridad transaccional"]
   },
   {
     icon: Layers,
-    title: "Plataformas & ERP a Medida",
-    desc: "Sistemas personalizados: gestión, e-learning, intranets. Modelamos procesos reales y automatizamos tareas.",
-    bullets: ["Tableros y permisos", "Workflows y notificaciones", "Reportes y KPIs", "Escalabilidad cloud"]
+    title: "Sistemas de Gestión a Medida",
+    desc: "Digitalización de procesos operativos. Desar rollamos herramientas para la gestión de recursos, personal y flujos de trabajo específicos.",
+    bullets: ["Automatización de procesos", "Control de roles y accesos", "Reportes y visualización de datos"]
   },
   {
-    icon: Video,
-    title: "Contenido TikTok & RRSS",
-    desc: "Estrategia, guiones y producción para crecimiento orgánico. Formatos nativos y consistencia visual.",
-    bullets: ["Calendario editorial", "Análisis de tendencias", "Edición pro (shorts/reels)", "Brand voice"]
+    icon: Video, // Podrías cambiarlo por 'Share2' o 'MessageSquare' si 'Video' te parece muy informal
+    title: "Gestión de Canales Digitales",
+    desc: "Estrategia de comunicación digital alineada a la identidad de la marca. Producción de contenido audiovisual y gestión de comunidad.",
+    bullets: ["Planificación de contenidos", "Producción audiovisual", "Gestión de comunidad y métricas"]
   },
   {
-    icon: Wand2,
-    title: "Branding & UX/UI",
-    desc: "Identidad con propósito + interfaces claras. Diseñamos experiencias memorables GUI/UX.",
-    bullets: ["Logo y sistema visual", "Design system", "Prototipos interactivos", "Pruebas de usabilidad"]
+    icon: Wand2, // Sugerencia: Cambiar por 'PenTool' o 'Layout' para verse más técnico
+    title: "Diseño de Producto Digital (UI/UX)",
+    desc: "Diseño de interfaces centrado en la usabilidad y la consistencia visual. Creación de sistemas de diseño para asegurar escalabilidad.",
+    bullets: ["Prototipado interactivo", "Sistemas de diseño (Design Systems)", "Auditoría de usabilidad"]
   },
   {
     icon: ChartSpline,
-    title: "Estrategia & Growth",
-    desc: "Ruta de crecimiento: auditoría, métricas, experimentación. Hipótesis, test A/B y aprendizaje continuo.",
-    bullets: ["Diagnóstico inicial", "Mapa de oportunidades", "OKRs y KPIs", "Iteración de experimentos"]
-  },
+    title: "Consultoría Tecnológica",
+    desc: "Análisis y diagnóstico para la transformación digital. Identificamos cuellos de botella y proponemos la tecnología adecuada para resolverlos.",
+    bullets: ["Diagnóstico de infraestructura", "Planificación de transformación digital", "Definición de KPIs técnicos"]
+  }
 ];

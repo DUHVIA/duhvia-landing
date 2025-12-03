@@ -3,9 +3,10 @@ import SectionHeader from "../components/SectionHeader";
 import ServiceCard from "../components/ServiceCard";
 import LogosMarquee from "../components/LogosMarquee";
 import StatsStrip from "../components/StatsStrip";
-import TestimonialSlider from "../components/TestimonialSlider";
+import SectorCarousel from "../components/SectorCarousel";
 import { services } from "../data/services";
-import { testimonials } from "../data/testimonials";
+import { processSteps } from "../data/process";
+import { benefits } from "../data/benefits";
 import { Link } from "react-router-dom";
 import { ArrowUp } from "lucide-react";
 import { socialLinks } from "../data/socials";
@@ -141,28 +142,7 @@ export default function Home() {
           <div className="relative mt-16">
             <div className="absolute left-1/2 top-0 h-full w-1 bg-gradient-to-b from-[var(--color-accent)] to-[var(--color-primary)] opacity-40" />
             <div className="grid md:grid-cols-2 gap-12">
-              {[
-                {
-                  n: "01",
-                  t: "Exploración",
-                  d: "Analizamos tu marca, objetivos y público. Identificamos oportunidades clave.",
-                },
-                {
-                  n: "02",
-                  t: "Propuesta",
-                  d: "Te presentamos un roadmap visual y técnico con KPIs y entregables claros.",
-                },
-                {
-                  n: "03",
-                  t: "Construcción",
-                  d: "Diseñamos y desarrollamos con revisiones iterativas y demos semanales.",
-                },
-                {
-                  n: "04",
-                  t: "Despliegue & Crecimiento",
-                  d: "Lanzamos tu proyecto y medimos el impacto. Ajustamos para escalar.",
-                },
-              ].map((step, i) => (
+              {processSteps.map((step, i) => (
                 <motion.div
                   key={step.n}
                   initial={{ opacity: 0, x: i % 2 === 0 ? -60 : 60 }}
@@ -184,17 +164,23 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ============== TESTIMONIOS ============== */}
+        {/* ============== IMPACTO POR SECTOR ============== */}
         <section className="section pb-8 pt-24 relative">
-          <SectionHeader
-            title="Clientes y comunidad"
-            subtitle="Historias reales, resultados reales."
-          />
-          <div className="mt-10">
-            <TestimonialSlider items={testimonials} />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <SectionHeader
+              title="Impacto por Sector"
+              subtitle="Soluciones especializadas que entienden tu negocio."
+            />
+          </motion.div>
 
-          {/* Fade suave hacia la siguiente sección (CTA) */}
+          <div className="mt-12">
+            <SectorCarousel />
+          </div>
         </section>
 
         {/* ============== CTA FINAL  ============== */}
@@ -213,12 +199,7 @@ export default function Home() {
                 </p>
 
                 <div className="mt-6 grid sm:grid-cols-2 gap-3 text-sm">
-                  {[
-                    "Entrega 1–3 semanas (según alcance)",
-                    "Core Web Vitals + SEO técnico",
-                    "Sprints, demos y métricas",
-                    "Soporte 30/60/90 días",
-                  ].map((b) => (
+                  {benefits.map((b) => (
                     <div
                       key={b}
                       className="flex items-start gap-3 rounded-xl p-3 bg-[var(--color-surface-2)]/35 border border-white/10"
