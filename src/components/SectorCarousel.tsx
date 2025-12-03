@@ -11,10 +11,12 @@ export default function SectorCarousel() {
     // Responsive items per page
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth < 768) {
-                setItemsPerPage(1);
+            if (window.innerWidth < 640) {
+                setItemsPerPage(1); // Móvil
+            } else if (window.innerWidth < 1024) {
+                setItemsPerPage(2); // Tablet / Laptop pequeña
             } else {
-                setItemsPerPage(3);
+                setItemsPerPage(3); // Desktop
             }
         };
 
@@ -22,6 +24,8 @@ export default function SectorCarousel() {
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
+
+    const maxIndex = Math.max(0, sectors.length - itemsPerPage);
 
     // Auto-play
     useEffect(() => {
@@ -32,24 +36,19 @@ export default function SectorCarousel() {
         }, 5000);
 
         return () => clearInterval(interval);
-    }, [currentIndex, isPaused, itemsPerPage]);
+    }, [currentIndex, isPaused, maxIndex]);
 
     const nextSlide = () => {
         setCurrentIndex((prev) => {
             // Si llegamos al final, volvemos al inicio
-            if (prev + itemsPerPage >= sectors.length) {
-                return 0;
-            }
+            if (prev >= maxIndex) return 0;
             return prev + 1;
         });
     };
 
     const prevSlide = () => {
         setCurrentIndex((prev) => {
-            if (prev === 0) {
-                // Ir al final (ajustando para que muestre la última página completa)
-                return Math.max(0, sectors.length - itemsPerPage);
-            }
+            if (prev === 0) return maxIndex;
             return prev - 1;
         });
     };
@@ -59,40 +58,58 @@ export default function SectorCarousel() {
 
     return (
         <div
-            className="relative w-full max-w-6xl mx-auto px-4"
+            className="relative w-full max-w-6xl mx-auto px-4 group/carousel"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
         >
-            {/* Contenedor del carrusel */}
-            <div className="overflow-hidden py-4">
+            {/* Contenedor visible (Mask) */}
+            <div className="overflow-hidden py-8"> {/* py-8 para dar espacio a la sombra hover */}
                 <motion.div
-                    className="flex gap-6"
+                    className="flex"
                     initial={false}
+                    // La magia ocurre aquí: movemos el porcentaje de 1 item * el índice actual
                     animate={{ x: `-${currentIndex * (100 / itemsPerPage)}%` }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    style={{ width: `${(sectors.length / itemsPerPage) * 100}%` }}
                 >
                     {sectors.map((item, i) => (
-                        <div
+                        <motion.div // <--- CAMBIAR de 'div' a 'motion.div'
                             key={i}
-                            className="relative flex-shrink-0 px-2"
-                            style={{ width: `${100 / sectors.length}%` }}
+                            className="relative flex-shrink-0 px-3"
+                            style={{ width: `${100 / itemsPerPage}%` }}
+
+                            // --- AGREGAR ESTAS PROPIEDADES ---
+                            initial={{ opacity: 0, y: 50 }}     // Empieza abajo e invisible
+                            whileInView={{ opacity: 1, y: 0 }}  // Sube a su posición
+                            viewport={{ once: true, margin: "-50px" }} // Se activa al verlo
+                            transition={{
+                                duration: 0.5,
+                                delay: i * 0.3, // El truco: cada tarjeta tarda un poco más que la anterior (0.1s, 0.2s, 0.3s...)
+                                type: "spring",
+                                stiffness: 100
+                            }}
+                        // ---------------------------------
                         >
-                            <div className="h-full group relative p-8 rounded-3xl bg-[var(--color-surface)]/40 backdrop-blur-md border border-white/5 hover:border-[var(--color-accent)]/30 transition-all hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]">
+                            <div className="h-full group relative p-8 rounded-3xl bg-[var(--color-surface)]/40 backdrop-blur-md border border-white/5 hover:border-[var(--color-accent)]/30 transition-all hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] flex flex-col">
+                                {/* Efecto gradiente fondo */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl" />
+
                                 <div className="relative z-10 flex flex-col h-full">
-                                    <div className="mb-6 inline-flex p-3 rounded-2xl bg-[var(--color-surface)] border border-white/10 shadow-lg group-hover:scale-110 transition-transform duration-300 w-fit">
+                                    {/* Icono */}
+                                    <div className="mb-6 inline-flex p-3 rounded-2xl bg-[var(--color-surface)] border border-white/10 shadow-lg group-hover:scale-110 group-hover:bg-[var(--color-accent)]/10 transition-all duration-300 w-fit">
+                                        {/* Clonamos el elemento para asegurarnos que tenga el tamaño correcto si viene como componente */}
                                         {item.icon}
                                     </div>
+
                                     <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[var(--color-accent)] transition-colors">
                                         {item.title}
                                     </h3>
-                                    <p className="subtle leading-relaxed text-sm flex-grow">
+
+                                    <p className="text-gray-400 text-sm leading-relaxed flex-grow">
                                         {item.desc}
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </motion.div>
             </div>
@@ -115,11 +132,11 @@ export default function SectorCarousel() {
 
             {/* Indicadores (Dots) */}
             <div className="flex justify-center gap-2 mt-6">
-                {Array.from({ length: Math.ceil(sectors.length - itemsPerPage + 1) }).map((_, idx) => (
+                {Array.from({ length: maxIndex + 1 }).map((_, idx) => ( //length: Math.ceil(sectors.length - itemsPerPage + 1
                     <button
                         key={idx}
                         onClick={() => setCurrentIndex(idx)}
-                        className={`h-2 rounded-full transition-all duration-300 ${currentIndex === idx
+                        className={`h-1.5 rounded-full transition-all duration-300 ${currentIndex === idx //h-1.5
                             ? "w-8 bg-[var(--color-accent)]"
                             : "w-2 bg-white/20 hover:bg-white/40"
                             }`}
