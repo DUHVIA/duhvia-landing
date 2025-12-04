@@ -5,12 +5,12 @@ import PricingCard from "../components/PricingCard";
 import ImageShowcase from "../components/ImageShowcase";
 import { services } from "../data/services";
 import { Link } from "react-router-dom";
-import webDevImg from '../assets/services/web-dev.png';
-import ecommerceImg from '../assets/services/ecommerce.png';
-import plataformImg from '../assets/services/platform.png';
-import tiktokImg from '../assets/services/tiktok.png';
-import brandingImg from '../assets/services/branding.png';
-import growthImg from '../assets/services/growth.png';
+import webDevImg from '../assets/services/web-dev.webp';
+import ecommerceImg from '../assets/services/ecommerce.webp';
+import plataformImg from '../assets/services/platform.webp';
+import tiktokImg from '../assets/services/tiktok.webp';
+import brandingImg from '../assets/services/branding.webp';
+import growthImg from '../assets/services/growth.webp';
 
 /** Mapa de imágenes (colócalas en /public/services/) */
 const serviceImages: Record<string, string> = {

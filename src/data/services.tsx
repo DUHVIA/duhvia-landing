@@ -1,11 +1,11 @@
 import { Code2, ShoppingCart, Layers, Video, Wand2, ChartSpline } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import webDevImg from '../assets/services/web-dev-cor.png';
-import comEleImg from '../assets/services/com-ele.png';
-import gesMedImg from '../assets/services/ges-med.png';
-import canDigImg from '../assets/services/can-dig.png';
-import uiUxImg from '../assets/services/ui-ux.png';
-import consTecImg from '../assets/services/cons-tec.png';
+import webDevImg from '../assets/services/web-dev-cor.webp';
+import comEleImg from '../assets/services/com-ele.webp';
+import gesMedImg from '../assets/services/ges-med.webp';
+import canDigImg from '../assets/services/can-dig.webp';
+import uiUxImg from '../assets/services/ui-ux.webp';
+import consTecImg from '../assets/services/cons-tec.webp';
 
 export type Service = {
   icon: LucideIcon;
