@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { getAssetPath } from "../utils/assets";
 
 const links = [
   { to: "/", label: "Inicio" },
@@ -19,11 +20,11 @@ export default function Navbar() {
       {/* ===== NAVBAR LIMPIO SIN EFECTOS NI MARCOS ===== */}
       <header className="fixed top-0 left-0 w-full z-50 bg-[rgba(15,21,24,0.8)] backdrop-blur-lg">
         <nav className="section flex items-center justify-between h-16">
-          
+
           {/* ===== LOGO DUHVIA ===== */}
           <Link to="/" className="flex items-center gap-3 group">
             <img
-              src="/logo-duhvia.png"
+              src={getAssetPath("/logo-duhvia.png")}
               alt="DUHVIA Logo"
               className="h-9 w-auto transition-transform duration-300 group-hover:scale-105"
             />
@@ -40,10 +41,9 @@ export default function Navbar() {
                 key={l.to}
                 to={l.to}
                 className={({ isActive }) =>
-                  `text-sm transition font-medium ${
-                    isActive
-                      ? "text-white"
-                      : "text-white/70 hover:text-accent"
+                  `text-sm transition font-medium ${isActive
+                    ? "text-white"
+                    : "text-white/70 hover:text-accent"
                   }`
                 }
               >

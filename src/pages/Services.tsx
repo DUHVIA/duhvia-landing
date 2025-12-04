@@ -5,15 +5,16 @@ import PricingCard from "../components/PricingCard";
 import ImageShowcase from "../components/ImageShowcase";
 import { services } from "../data/services";
 import { Link } from "react-router-dom";
+import { getAssetPath } from "../utils/assets";
 
 /** Mapa de imágenes (colócalas en /public/services/) */
 const serviceImages: Record<string, string> = {
-  "Desarrollo Web de Alto Impacto": "/services/web-dev.png",
-  "E-commerce que Convierte": "/services/ecommerce.png",
-  "Plataformas & ERP a Medida": "/services/platform.png",
-  "Contenido TikTok & RRSS": "/services/tiktok.png",
-  "Branding & UX/UI": "/services/branding.png",
-  "Estrategia & Growth": "/services/growth.png",
+  "Desarrollo Web de Alto Impacto": getAssetPath("/services/web-dev.png"),
+  "E-commerce que Convierte": getAssetPath("/services/ecommerce.png"),
+  "Plataformas & ERP a Medida": getAssetPath("/services/platform.png"),
+  "Contenido TikTok & RRSS": getAssetPath("/services/tiktok.png"),
+  "Branding & UX/UI": getAssetPath("/services/branding.png"),
+  "Estrategia & Growth": getAssetPath("/services/growth.png"),
 };
 
 export default function Services() {

@@ -1,5 +1,6 @@
 import { Code2, ShoppingCart, Layers, Video, Wand2, ChartSpline } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { getAssetPath } from "../utils/assets";
 
 export type Service = {
   icon: LucideIcon;
@@ -12,7 +13,7 @@ export type Service = {
 export const services: Service[] = [
   {
     icon: Code2,
-    src: "/services/web-dev-cor.png",
+    src: getAssetPath("/services/web-dev-cor.png"),
     title: "Desarrollo Web Corporativo",
     desc: "Construcción de portales y aplicaciones web bajo estándares de seguridad y rendimiento. Arquitectura limpia orientada al mantenimiento.",
     bullets: ["Webs corporativas y Landings", "Desarrollo de Aplicaciones Web (SPA)", "Integración de APIs y CRM"]
@@ -20,34 +21,34 @@ export const services: Service[] = [
   {
     icon: ShoppingCart,
     title: "Soluciones de Comercio Electrónico",
-    src: "/services/com-ele.png",
+    src: getAssetPath("/services/com-ele.png"),
     desc: "Implementación de canales de venta online seguros y funcionales. Gestión de pasarelas de pago y sincronización de inventarios.",
     bullets: ["Pasarelas de pago (Culqi/Stripe)", "Gestión de catálogo y stock", "Seguridad transaccional"]
   },
   {
     icon: Layers,
-    src: "/services/ges-med.png",
+    src: getAssetPath("/services/ges-med.png"),
     title: "Sistemas de Gestión a Medida",
     desc: "Digitalización de procesos operativos. Desar rollamos herramientas para la gestión de recursos, personal y flujos de trabajo específicos.",
     bullets: ["Automatización de procesos", "Control de roles y accesos", "Reportes y visualización de datos"]
   },
   {
     icon: Video, // Podrías cambiarlo por 'Share2' o 'MessageSquare' si 'Video' te parece muy informal
-    src: "/services/can-dig.png",
+    src: getAssetPath("/services/can-dig.png"),
     title: "Gestión de Canales Digitales",
     desc: "Estrategia de comunicación digital alineada a la identidad de la marca. Producción de contenido audiovisual y gestión de comunidad.",
     bullets: ["Planificación de contenidos", "Producción audiovisual", "Gestión de comunidad y métricas"]
   },
   {
     icon: Wand2, // Sugerencia: Cambiar por 'PenTool' o 'Layout' para verse más técnico
-    src: "/services/ui-ux.png",
+    src: getAssetPath("/services/ui-ux.png"),
     title: "Diseño de Producto Digital (UI/UX)",
     desc: "Diseño de interfaces centrado en la usabilidad y la consistencia visual. Creación de sistemas de diseño para asegurar escalabilidad.",
     bullets: ["Prototipado interactivo", "Sistemas de diseño (Design Systems)", "Auditoría de usabilidad"]
   },
   {
     icon: ChartSpline,
-    src: "/services/cons-tec.png",
+    src: getAssetPath("/services/cons-tec.png"),
     title: "Consultoría Tecnológica",
     desc: "Análisis y diagnóstico para la transformación digital. Identificamos cuellos de botella y proponemos la tecnología adecuada para resolverlos.",
     bullets: ["Diagnóstico de infraestructura", "Planificación de transformación digital", "Definición de KPIs técnicos"]
