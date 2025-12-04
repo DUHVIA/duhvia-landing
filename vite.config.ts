@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  base: "/duhvia-landing/", //nombre de la repo
+  // base: "/duhvia-landing/", // COMENTADO: Usar '/' (default) para dominio personalizado (duhvia.com)
   plugins: [react(), tailwindcss()],
 })
