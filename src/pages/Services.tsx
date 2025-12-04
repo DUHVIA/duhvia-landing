@@ -5,16 +5,21 @@ import PricingCard from "../components/PricingCard";
 import ImageShowcase from "../components/ImageShowcase";
 import { services } from "../data/services";
 import { Link } from "react-router-dom";
-import { getAssetPath } from "../utils/assets";
+import webDevImg from '../assets/services/web-dev.png';
+import ecommerceImg from '../assets/services/ecommerce.png';
+import plataformImg from '../assets/services/platform.png';
+import tiktokImg from '../assets/services/tiktok.png';
+import brandingImg from '../assets/services/branding.png';
+import growthImg from '../assets/services/growth.png';
 
 /** Mapa de imágenes (colócalas en /public/services/) */
 const serviceImages: Record<string, string> = {
-  "Desarrollo Web de Alto Impacto": getAssetPath("/services/web-dev.png"),
-  "E-commerce que Convierte": getAssetPath("/services/ecommerce.png"),
-  "Plataformas & ERP a Medida": getAssetPath("/services/platform.png"),
-  "Contenido TikTok & RRSS": getAssetPath("/services/tiktok.png"),
-  "Branding & UX/UI": getAssetPath("/services/branding.png"),
-  "Estrategia & Growth": getAssetPath("/services/growth.png"),
+  "Desarrollo Web de Alto Impacto": webDevImg,
+  "E-commerce que Convierte": ecommerceImg,
+  "Plataformas & ERP a Medida": plataformImg,
+  "Contenido TikTok & RRSS": tiktokImg,
+  "Branding & UX/UI": brandingImg,
+  "Estrategia & Growth": growthImg,
 };
 
 export default function Services() {
