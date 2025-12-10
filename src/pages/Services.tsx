@@ -1,9 +1,9 @@
-import { motion } from "framer-motion";
 import SectionHeader from "../components/SectionHeader";
 import ServiceCard from "../components/ServiceCard";
-import PricingCard from "../components/PricingCard";
+import CatalogCarousel from "../components/CatalogCarousel";
 import ImageShowcase from "../components/ImageShowcase";
 import { services } from "../data/services";
+import { catalogItems } from "../data/catalog";
 import { Link } from "react-router-dom";
 import webDevImg from '../assets/services/web-dev.webp';
 import ecommerceImg from '../assets/services/ecommerce.webp';
@@ -11,6 +11,7 @@ import plataformImg from '../assets/services/platform.webp';
 import tiktokImg from '../assets/services/tiktok.webp';
 import brandingImg from '../assets/services/branding.webp';
 import growthImg from '../assets/services/growth.webp';
+import { motion } from "framer-motion";
 
 /** Mapa de imágenes (colócalas en /public/services/) */
 const serviceImages: Record<string, string> = {
@@ -174,73 +175,30 @@ export default function Services() {
 
       {/* ===== COMBOS / PRICING ===== */}
       <div id="combos">
+        {/* --- SECCIÓN DESARROLLO --- */}
         <SectionHeader
-          title="Combos pensados para empezar bien"
-          subtitle="Opciones claras para diferentes etapas de tu marca."
+          title="Catálogo de Desarrollo"
+          subtitle="Soluciones tecnológicas a medida con precios transparentes."
         />
-        <div className="grid md:grid-cols-3 gap-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
-            <PricingCard
-              tier="Launch Básico"
-              price="S/ Consultar"
-              features={[
-                "Landing 1–2 secciones",
-                "Branding esencial",
-                "3 piezas para RRSS",
-                "Formularios + analítica",
-              ]}
-            />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            <PricingCard
-              tier="E-commerce Pro"
-              price="S/ Consultar"
-              highlight
-              features={[
-                "Tienda con carrito y pagos",
-                "Catálogo + stock",
-                "Email transaccional",
-                "Automatizaciones básicas",
-              ]}
-            />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-          >
-            <PricingCard
-              tier="Plataforma a Medida"
-              price="S/ Por alcance"
-              features={[
-                "Módulos según proceso",
-                "Roles y permisos",
-                "Reportes y KPIs",
-                "Integraciones con APIs",
-              ]}
-            />
-          </motion.div>
+
+        <div className="mt-10 mb-20">
+          <CatalogCarousel items={catalogItems.filter(i => i.category === 'development')} />
         </div>
-        <motion.div
-          className="text-center mt-8"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-        >
-          <Link to="/contacto" className="btn btn-primary">Quiero una propuesta</Link>
-        </motion.div>
+
+        {/* --- SECCIÓN MARKETING --- */}
+        <SectionHeader
+          title="Catálogo de Marketing"
+          subtitle="Estrategias de crecimiento para tu marca. (Servicios sujetos a contrato anual)"
+        />
+
+        <div className="mt-10">
+          <CatalogCarousel items={catalogItems.filter(i => i.category === 'marketing')} />
+        </div>
+
+        <div className="text-center mt-12">
+          <p className="subtle mb-4">¿Buscas una solución personalizada o un paquete a medida?</p>
+          <Link to="/contacto" className="btn btn-secondary">Solicitar cotización personalizada</Link>
+        </div>
       </div>
 
       {/* ===== GALERÍA / SHOWCASE ===== */}
