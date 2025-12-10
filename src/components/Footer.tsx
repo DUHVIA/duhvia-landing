@@ -1,4 +1,5 @@
 import { Mail, MapPin, Phone, Send, ArrowUpRight, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import { socialLinks } from "../data/socials";
 
 export default function Footer() {
@@ -58,13 +59,13 @@ export default function Footer() {
                     { href: "/contacto", label: "Contacto" },
                   ].map((item) => (
                     <li key={item.href}>
-                      <a
-                        href={item.href}
+                      <Link
+                        to={item.href}
                         className="text-white/70 hover:text-accent transition inline-flex items-center gap-2"
                       >
                         <ArrowUpRight size={14} />
                         {item.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
