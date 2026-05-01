@@ -1,27 +1,51 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 
 export default function ProjectCard({
-  title, type, image, tech, summary,
+  title, type, thumbnail, tech, summary, slug, isBento
 }: {
-  title: string; type: string; image?: string; tech: string[]; summary?: string;
+  title: string; type: string; thumbnail: string; tech: string[]; summary: string; slug: string; isBento?: boolean;
 }) {
   return (
-    <motion.div whileHover={{ y: -6 }} className="card group overflow-hidden">
-      <div className="relative aspect-video rounded-xl bg-white/5 mb-4 overflow-hidden">
-        {/* Reemplaza por <img src={image} .../> si tienes assets */}
-        <div className="absolute inset-0 flex items-center justify-center subtle">Vista previa</div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
-      </div>
-      <div className="flex items-center justify-between">
-        <h4 className="font-semibold">{title}</h4>
-        <span className="text-xs px-2 py-1 rounded bg-white/10">{type}</span>
-      </div>
-      {summary && <p className="subtle text-sm mt-2">{summary}</p>}
-      <div className="mt-3 flex flex-wrap gap-2">
-        {tech.map((t) => (
-          <span key={t} className="text-xs bg-white/5 px-2 py-1 rounded">{t}</span>
-        ))}
-      </div>
-    </motion.div>
+    <Link to={`/portafolio/${slug}`} className="block h-full">
+      <motion.div 
+        className="relative h-full w-full group overflow-hidden rounded-3xl bg-[var(--color-surface)] border border-white/5"
+      >
+        <motion.img 
+          src={thumbnail} 
+          alt={title}
+          className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+        
+        <div className="absolute inset-0 p-8 flex flex-col justify-end">
+          <div className="flex justify-between items-end">
+            <div className="space-y-2">
+              <span className="text-[var(--color-primary)] text-[10px] font-black uppercase tracking-widest">{type}</span>
+              <h4 className={`${isBento ? 'text-3xl' : 'text-xl'} font-black italic uppercase tracking-tighter leading-none`}>
+                {title}
+              </h4>
+              {isBento && (
+                <p className="text-white/50 text-sm max-w-xs line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  {summary}
+                </p>
+              )}
+            </div>
+            <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 group-hover:bg-[var(--color-primary)] group-hover:text-black transition-all duration-500">
+              <ArrowUpRight size={24} />
+            </div>
+          </div>
+          
+          <div className="mt-4 flex gap-2 overflow-hidden">
+             {tech.map(t => (
+               <span key={t} className="text-[9px] uppercase font-bold bg-white/5 backdrop-blur-md px-2 py-1 rounded border border-white/5">
+                 {t}
+               </span>
+             ))}
+          </div>
+        </div>
+      </motion.div>
+    </Link>
   );
 }
