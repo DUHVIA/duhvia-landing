@@ -9,39 +9,36 @@ export default function CatalogCarousel({ items }: { items: CatalogItem[] }) {
     const [itemsPerPage, setItemsPerPage] = useState(3);
     const [isPaused, setIsPaused] = useState(false);
 
-    // Responsive items per page
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth < 768) {
-                setItemsPerPage(1); // Móvil
+                setItemsPerPage(1); 
             } else if (window.innerWidth < 1280) {
-                setItemsPerPage(2); // Tablet / Laptop pequeña
+                setItemsPerPage(2); 
             } else {
-                setItemsPerPage(3); // Desktop
+                setItemsPerPage(3); 
             }
         };
 
-        handleResize(); // Initial check
+        handleResize(); 
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
     const maxIndex = Math.max(0, items.length - itemsPerPage);
 
-    // Auto-play
     useEffect(() => {
         if (isPaused) return;
 
         const interval = setInterval(() => {
             nextSlide();
-        }, 6000); // Un poco más lento que el de sectores para dar tiempo a leer precios
+        }, 6000); 
 
         return () => clearInterval(interval);
     }, [currentIndex, isPaused, maxIndex]);
 
     const nextSlide = () => {
         setCurrentIndex((prev) => {
-            // Si llegamos al final, volvemos al inicio
             if (prev >= maxIndex) return 0;
             return prev + 1;
         });
@@ -60,8 +57,7 @@ export default function CatalogCarousel({ items }: { items: CatalogItem[] }) {
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
         >
-            {/* Contenedor visible (Mask) */}
-            <div className="overflow-hidden py-8 -mx-4 px-4"> {/* Margen negativo para permitir sombras sin cortar */}
+            <div className="overflow-hidden py-8 -mx-4 px-4"> 
                 <motion.div
                     className="flex"
                     initial={false}
@@ -89,7 +85,6 @@ export default function CatalogCarousel({ items }: { items: CatalogItem[] }) {
                 </motion.div>
             </div>
 
-            {/* Botones de Navegación */}
             <button
                 onClick={prevSlide}
                 className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-8 z-20 p-3 rounded-full bg-[var(--color-surface)] border border-white/10 text-white/70 hover:text-white hover:bg-[var(--color-accent)] transition-all shadow-lg backdrop-blur-sm"
@@ -105,7 +100,6 @@ export default function CatalogCarousel({ items }: { items: CatalogItem[] }) {
                 <ChevronRight size={24} />
             </button>
 
-            {/* Indicadores (Dots) */}
             <div className="flex justify-center gap-2 mt-2">
                 {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
                     <button

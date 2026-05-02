@@ -46,7 +46,6 @@ export default function ProjectDetail() {
         </motion.div>
       )}
 
-      {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <motion.img
           initial={{ scale: 1.4 }}
@@ -88,7 +87,6 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* Case Study Content */}
       <div className="max-w-6xl mx-auto px-6 py-32">
         <div className="grid md:grid-cols-12 gap-20">
           <div className="md:col-span-7 space-y-32">
@@ -153,7 +151,6 @@ export default function ProjectDetail() {
         </div>
       </div>
 
-      {/* Next Project Section */}
       <section className="border-t border-white/5 pt-32 pb-60 px-6 text-center">
         <h3 className="text-[10px] uppercase tracking-[0.5em] text-white/20 mb-12 font-black">Siguiente Caso</h3>
         <Link to={`/portafolio/${nextProject.slug}`} className="group inline-block">

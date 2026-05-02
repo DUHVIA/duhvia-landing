@@ -17,11 +17,9 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ===== NAVBAR LIMPIO SIN EFECTOS NI MARCOS ===== */}
       <header className="fixed top-0 left-0 w-full z-50 bg-[rgba(15,21,24,0.8)] backdrop-blur-lg">
         <nav className="section flex items-center justify-between h-16">
 
-          {/* ===== LOGO DUHVIA ===== */}
           <Link to="/" className="flex items-center gap-3 group">
             <img
               src={getAssetPath("/logo-duhvia.png")}
@@ -34,7 +32,6 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* ===== MENU DESKTOP ===== */}
           <div className="hidden md:flex items-center gap-7">
             {links.map((l) => (
               <NavLink
@@ -55,7 +52,6 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* ===== MENU MOBILE ===== */}
           <button
             className="md:hidden p-2 text-white/90 hover:text-accent transition"
             onClick={() => setOpen(!open)}
@@ -65,7 +61,6 @@ export default function Navbar() {
           </button>
         </nav>
 
-        {/* ===== MENU MOBILE DROPDOWN ===== */}
         {open && (
           <div className="md:hidden bg-[rgba(15,21,24,0.95)] backdrop-blur-md">
             <div className="section py-5 flex flex-col gap-4">
@@ -91,7 +86,6 @@ export default function Navbar() {
         )}
       </header>
 
-      {/* ===== ESPACIADOR PARA EVITAR TAPAR CONTENIDO ===== */}
       <div aria-hidden className="h-16" />
     </>
   );

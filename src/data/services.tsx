@@ -38,14 +38,14 @@ export const services: Service[] = [
     bullets: ["Automatización de procesos", "Control de roles y accesos", "Reportes y visualización de datos"]
   },
   {
-    icon: Video, // Podrías cambiarlo por 'Share2' o 'MessageSquare' si 'Video' te parece muy informal
+    icon: Video, 
     src: canDigImg,
     title: "Gestión de Canales Digitales",
     desc: "Estrategia de comunicación digital alineada a la identidad de la marca. Producción de contenido audiovisual y gestión de comunidad.",
     bullets: ["Planificación de contenidos", "Producción audiovisual", "Gestión de comunidad y métricas"]
   },
   {
-    icon: Wand2, // Sugerencia: Cambiar por 'PenTool' o 'Layout' para verse más técnico
+    icon: Wand2, 
     src: uiUxImg,
     title: "Diseño de Producto Digital (UI/UX)",
     desc: "Diseño de interfaces centrado en la usabilidad y la consistencia visual. Creación de sistemas de diseño para asegurar escalabilidad.",

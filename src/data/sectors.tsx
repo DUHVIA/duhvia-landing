@@ -12,7 +12,6 @@ import {
 } from 'lucide-react';
 
 export const sectors = [
-    // --- LOS 3 ORIGINALES ---
     {
         icon: <Hotel className="text-[var(--color-accent)]" size={32} />,
         title: "Sector Hotelero",
@@ -29,7 +28,6 @@ export const sectors = [
         desc: "Desarrollamos Productos Mínimos Viables (MVP) escalables para lanzar ideas al mercado rápido, validar hipótesis y atraer inversión."
     },
 
-    // --- NUEVOS SECTORES ---
     {
         icon: <GraduationCap className="text-[var(--color-accent)]" size={32} />,
         title: "Educación (EdTech)",

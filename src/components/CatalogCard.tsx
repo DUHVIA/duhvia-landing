@@ -4,12 +4,10 @@ import { Check } from "lucide-react";
 export default function CatalogCard({ item }: { item: CatalogItem }) {
     return (
         <div className="card h-full flex flex-col relative group hover:border-[var(--color-accent)]/50 hover:bg-white/5 hover:scale-[1.02] transition-all duration-300">
-            {/* Badge de Descuento */}
             <div className="absolute -top-3 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10 border border-[var(--color-surface)]">
                 -{item.pricing.discountPercent}% OFF
             </div>
 
-            {/* Header */}
             <div className="mb-6">
                 <h3 className="text-xl font-bold text-white group-hover:text-[var(--color-accent)] transition-colors">
                     {item.title}
@@ -19,7 +17,6 @@ export default function CatalogCard({ item }: { item: CatalogItem }) {
                 </p>
             </div>
 
-            {/* Features */}
             <div className="flex-1 mb-6">
                 <ul className="space-y-3">
                     {item.features.map((feature, idx) => (
@@ -36,7 +33,6 @@ export default function CatalogCard({ item }: { item: CatalogItem }) {
                 </ul>
             </div>
 
-            {/* Pricing Block */}
             <div className="mt-auto pt-6 border-t border-white/10">
                 <div className="flex justify-between items-center mb-1">
                     <span className="text-xs text-white/50 uppercase tracking-wider">Precio Regular</span>

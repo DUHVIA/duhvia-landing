@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-/* =========================
-   DUHVIA — THEME (logo + paleta)
-   ========================= */
 @theme {
   --color-bg: #0f1518;
   --color-surface: #1b2429;
@@ -20,7 +17,6 @@
   --color-steel-2: #607D8B;
 }
 
-/* ===== BASE ===== */
 html, body, #root {
   height: 100%;
   background: var(--color-bg);
@@ -29,7 +25,6 @@ html, body, #root {
 }
 
 
-/* ===== UTILIDADES ===== */
 .section { @apply max-w-6xl mx-auto px-4 md:px-6 lg:px-8; }
 
 .card {
@@ -53,9 +48,6 @@ html, body, #root {
   border-color: color-mix(in oklab, var(--color-steel-2) 25%, transparent);
 }
 
-/* ================================
-   HERO (fondo + luces dinámicas)
-   ================================ */
 .gradient-hero {
   position: relative;
   overflow: hidden;
@@ -64,7 +56,6 @@ html, body, #root {
     radial-gradient(900px 500px at 90% 10%, color-mix(in oklab, var(--color-accent) 25%, transparent), transparent);
 }
 
-/* Luces flotantes del HERO */
 .glow {
   position: absolute;
   border-radius: 50%;
@@ -104,7 +95,6 @@ html, body, #root {
   animation: moveDiagonal 30s ease-in-out infinite alternate;
 }
 
-/* Movimiento pseudo-aleatorio */
 @keyframes floatBouncePrimary {
   0%   { transform: translate(0, 0) scale(1); }
   15%  { transform: translate(15vw, -10vh) scale(1.05); }
@@ -126,9 +116,6 @@ html, body, #root {
   100% { transform: translate(0, 0) scale(1); }
 }
 
-/* =============================
-   HERO TITLE (degradé + glow)
-   ============================= */
 .hero-title {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 900;
@@ -166,16 +153,13 @@ html, body, #root {
   to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
-/* =============================
-   MARQUEE / STATS / TABLE
-   ============================= */
 @keyframes floaty { 0%{transform:translateY(0)} 50%{transform:translateY(-14px)} 100%{transform:translateY(0)} }
 .floater { animation: floaty 5s ease-in-out infinite; }
 .floater-delay { animation-delay: .9s; }
 
-.marquee { display:flex; overflow:hidden; gap:2.5rem; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
-.marquee__inner { display:flex; gap:2.5rem; animation: scroll 23s linear infinite; }
-@keyframes scroll { from {transform: translateX(0)} to {transform: translateX(-50%)} }
+.marquee { display:flex; overflow:hidden; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
+.marquee__inner { display:flex; gap:2.5rem; padding-right:2.5rem; animation: scroll 23s linear infinite; }
+@keyframes scroll { from {transform: translateX(0)} to {transform: translateX(-100%)} }
 
 @keyframes pulseSoft { 0%,100% {transform: scale(1)} 50% {transform: scale(1.03)} }
 .stat { animation: pulseSoft 4.5s ease-in-out infinite; }
@@ -184,9 +168,6 @@ html, body, #root {
 .th { @apply text-left text-sm pb-1; color: color-mix(in oklab, var(--color-text) 70%, transparent); }
 .td { @apply rounded-xl p-4 align-top; background: color-mix(in oklab, var(--color-surface) 80%, var(--color-surface-2)); }
 
-/* =============================
-   DETALLES / HEADER GLOW
-   ============================= */
 .border-steel { border-color: color-mix(in oklab, var(--color-steel) 35%, transparent); }
 .text-accent { color: var(--color-accent); }
 .text-primary { color: var(--color-primary); }
@@ -203,3 +184,42 @@ header::after {
   z-index: -1;
 }
 
+.article-content {
+  @apply text-lg leading-relaxed text-white/70 font-medium;
+}
+
+.article-content h2 {
+  @apply text-3xl font-extrabold text-white mt-16 mb-6 tracking-tight;
+}
+
+.article-content h3 {
+  @apply text-2xl font-bold text-white mt-12 mb-4;
+}
+
+.article-content p {
+  @apply mb-6;
+}
+
+.article-content ul {
+  @apply list-disc list-outside ml-6 mb-8 space-y-3;
+}
+
+.article-content li {
+  @apply pl-2;
+}
+
+.article-content strong {
+  @apply text-white font-bold;
+}
+
+.article-content em {
+  @apply text-[var(--color-accent)] not-italic font-bold;
+}
+
+.article-content code {
+  @apply bg-white/10 px-2 py-0.5 rounded-md text-[var(--color-primary-soft)] font-mono text-sm;
+}
+
+.article-content blockquote {
+  @apply border-l-4 border-[var(--color-primary)] bg-[var(--color-surface)] p-6 md:p-8 rounded-r-2xl my-10 text-xl font-medium italic text-white/90;
+}

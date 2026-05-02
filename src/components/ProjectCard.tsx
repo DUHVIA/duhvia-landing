@@ -8,7 +8,7 @@ export default function ProjectCard({
   title: string; type: string; thumbnail: string; tech: string[]; summary: string; slug: string; isBento?: boolean;
 }) {
   return (
-    <Link to={`/portafolio/${slug}`} className="block h-full">
+    <Link to={`/portafolio/${slug}`} className="block h-full" data-cursor="VER">
       <motion.div 
         className="relative h-full w-full group overflow-hidden rounded-3xl bg-[var(--color-surface)] border border-white/5"
       >

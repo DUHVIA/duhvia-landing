@@ -8,6 +8,7 @@ import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
 import ProjectDetail from "./pages/ProjectDetail";
 import Blog from "./pages/Blog";
+import BlogDetail from "./pages/BlogDetail";
 import Contact from "./pages/Contact";
 import CustomCursor from "./components/CustomCursor";
 
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="/portafolio" element={<Portfolio/>} />
             <Route path="/portafolio/:slug" element={<ProjectDetail/>} />
             <Route path="/blog" element={<Blog/>} />
+            <Route path="/blog/:slug" element={<BlogDetail/>} />
             <Route path="/contacto" element={<Contact/>} />
           </Routes>
         </AnimatePresence>

@@ -14,7 +14,6 @@ import { socialLinks } from "../data/socials";
 export default function Home() {
   return (
     <>
-      {/* ============== HERO (INTACTO) ============== */}
       <section className="relative gradient-hero border-b border-white/5 overflow-hidden">
         <div className="glow glow--primary"></div>
         <div className="glow glow--secondary"></div>
@@ -53,7 +52,6 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Redes Sociales Hero */}
             <div className="mt-10 flex items-center gap-4">
               <span className="text-sm font-medium text-white/60">Síguenos:</span>
               <div className="flex gap-3">
@@ -97,13 +95,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============== CONTENIDO GLOBAL (fondo unificado) ============== */}
       <div className="relative overflow-hidden">
-        {/* Fondo global dinámico suave */}
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(60%_80%_at_20%_20%,rgba(141,127,255,0.12),transparent),radial-gradient(60%_80%_at_80%_30%,rgba(26,230,200,0.12),transparent)]" />
         <div className="absolute inset-0 -z-20 blur-3xl opacity-25 bg-[conic-gradient(from_180deg,var(--color-primary),var(--color-accent),transparent)] animate-[spin_60s_linear_infinite]" />
 
-        {/* ============== SERVICIOS ============== */}
         <section className="section py-20">
           <SectionHeader
             title="Soluciones que impulsan tu marca"
@@ -133,7 +128,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ============== PROCESO (timeline) ============== */}
         <section className="section py-20 relative">
           <SectionHeader
             title="Nuestro proceso"
@@ -164,7 +158,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ============== IMPACTO POR SECTOR ============== */}
         <section className="section pb-8 pt-24 relative">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -183,11 +176,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ============== CTA FINAL  ============== */}
         <section className="relative overflow-hidden py-24 -mt-10">
           <div className="section relative z-10">
             <div className="grid lg:grid-cols-2 gap-10 items-center">
-              {/* Bloque principal */}
               <div className="rounded-3xl p-8 md:p-10 bg-[var(--color-surface)]/65 backdrop-blur border border-white/10 shadow-[0_16px_48px_rgb(0_0_0/0.35)]">
                 <h3 className="text-3xl md:text-4xl font-extrabold leading-tight">
                   ¿Listo para impresionar a tus clientes{" "}
@@ -218,7 +209,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Bloque lateral */}
               <div className="rounded-3xl p-[1px] relative">
                 <div className="absolute inset-0 -z-10 blur-3xl opacity-30 bg-[conic-gradient(from_180deg,var(--color-primary),var(--color-accent),transparent)]" />
                 <div className="rounded-3xl p-8 md:p-10 bg-[var(--color-surface)]/60 backdrop-blur border border-white/10">
@@ -253,7 +243,6 @@ export default function Home() {
         </section>
       </div>
 
-      {/* ============== BOTÓN “VOLVER ARRIBA” ============== */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         className="fixed right-5 bottom-6 z-50 p-3 rounded-full text-[var(--color-bg)] bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-accent)] shadow-[0_0_20px_var(--color-accent)] transition hover:scale-110"

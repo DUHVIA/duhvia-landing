@@ -13,7 +13,6 @@ import brandingImg from '../assets/services/branding.webp';
 import growthImg from '../assets/services/growth.webp';
 import { motion } from "framer-motion";
 
-/** Mapa de imágenes (colócalas en /public/services/) */
 const serviceImages: Record<string, string> = {
   "Desarrollo Web de Alto Impacto": webDevImg,
   "E-commerce que Convierte": ecommerceImg,
@@ -26,7 +25,6 @@ const serviceImages: Record<string, string> = {
 export default function Services() {
   return (
     <section className="section py-12 md:py-16 space-y-16">
-      {/* ===== HERO SERVICIOS ===== */}
       <div className="grid md:grid-cols-2 gap-8 items-center">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -48,7 +46,6 @@ export default function Services() {
           </div>
         </motion.div>
 
-        {/* Collage / héroe visual */}
         <motion.div
           className="grid grid-cols-2 gap-4"
           initial={{ opacity: 0, x: 30 }}
@@ -62,7 +59,6 @@ export default function Services() {
         </motion.div>
       </div>
 
-      {/* ===== GRID DE SERVICIOS (con imagen + card) ===== */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -90,7 +86,6 @@ export default function Services() {
         </div>
       </motion.div>
 
-      {/* ===== TIMELINE / PROCESO ===== */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -124,7 +119,6 @@ export default function Services() {
         </div>
       </motion.div>
 
-      {/* ===== COMPARATIVA RÁPIDA ===== */}
       <motion.div
         initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -173,9 +167,7 @@ export default function Services() {
         </div>
       </motion.div>
 
-      {/* ===== COMBOS / PRICING ===== */}
       <div id="combos">
-        {/* --- SECCIÓN DESARROLLO --- */}
         <SectionHeader
           title="Catálogo de Desarrollo"
           subtitle="Soluciones tecnológicas a medida con precios transparentes."
@@ -185,7 +177,6 @@ export default function Services() {
           <CatalogCarousel items={catalogItems.filter(i => i.category === 'development')} />
         </div>
 
-        {/* --- SECCIÓN MARKETING --- */}
         <SectionHeader
           title="Catálogo de Marketing"
           subtitle="Estrategias de crecimiento para tu marca. (Servicios sujetos a contrato anual)"
@@ -201,7 +192,6 @@ export default function Services() {
         </div>
       </div>
 
-      {/* ===== GALERÍA / SHOWCASE ===== */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -240,7 +230,6 @@ export default function Services() {
         </div>
       </motion.div>
 
-      {/* ===== CTA FINAL ===== */}
       <motion.div
         className="card text-center"
         initial={{ opacity: 0, y: 30 }}
