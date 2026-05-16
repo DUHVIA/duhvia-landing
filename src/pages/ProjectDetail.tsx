@@ -13,19 +13,10 @@ export default function ProjectDetail() {
   const project = projects[currentIndex];
   const nextProject = projects[(currentIndex + 1) % projects.length];
   
-  const [isExiting, setIsExiting] = useState(false);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
   if (!project) return <div className="py-20 text-center">Proyecto no encontrado.</div>;
-
-  const handleLaunch = () => {
-    setIsExiting(true);
-    setTimeout(() => {
-      window.open(project.caseStudy.externalLink, "_blank");
-      setIsExiting(false);
-    }, 1000);
-  };
 
   return (
     <motion.div
@@ -35,16 +26,6 @@ export default function ProjectDetail() {
       className="bg-black text-white min-h-screen"
     >
       <motion.div className="fixed top-0 left-0 right-0 h-1 bg-[var(--color-primary)] z-[100] origin-left" style={{ scaleX }} />
-
-      {isExiting && (
-        <motion.div
-          initial={{ y: "100%" }}
-          animate={{ y: 0 }}
-          className="fixed inset-0 z-[100] bg-[var(--color-primary)] flex items-center justify-center"
-        >
-          <h2 className="text-4xl md:text-6xl font-black italic uppercase text-black">Explorando en vivo...</h2>
-        </motion.div>
-      )}
 
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <motion.img
@@ -135,17 +116,14 @@ export default function ProjectDetail() {
                 {project.caseStudy.description}
               </p>
 
-              <Magnetic>
-                <button
-                  onClick={handleLaunch}
-                  className="w-full h-20 rounded-full bg-[var(--color-primary)] text-black font-black uppercase tracking-widest flex items-center justify-center gap-3 group overflow-hidden relative"
-                >
-                  <span className="relative z-10 flex items-center gap-3">
-                    Lanzar Demo <ExternalLink size={20} />
-                  </span>
-                  <motion.div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                </button>
-              </Magnetic>
+              <div className="pt-8 border-t border-white/10">
+                <h3 className="text-[10px] uppercase tracking-[0.3em] text-[var(--color-accent)] mb-4 flex items-center gap-2 font-bold">
+                  <BarChart3 size={14} /> Resultados
+                </h3>
+                <p className="text-white/80 font-medium italic">
+                  "{project.caseStudy.results}"
+                </p>
+              </div>
             </div>
           </aside>
         </div>

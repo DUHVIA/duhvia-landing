@@ -10,14 +10,12 @@ import ProjectDetail from "./pages/ProjectDetail";
 import Blog from "./pages/Blog";
 import BlogDetail from "./pages/BlogDetail";
 import Contact from "./pages/Contact";
-import CustomCursor from "./components/CustomCursor";
 
 export default function App() {
   const location = useLocation();
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-x-hidden">
-      <CustomCursor />
       <Navbar />
       <main className="flex-1">
         <AnimatePresence mode="wait">

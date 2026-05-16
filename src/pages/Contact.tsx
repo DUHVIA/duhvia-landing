@@ -3,10 +3,12 @@ import { useForm, ValidationError } from "@formspree/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle, X, Loader2, Mail, MessageSquare, MapPin } from "lucide-react";
 import Magnetic from "../components/Magnetic";
+import { useNavigate } from "react-router-dom";
 
 export default function Contact() {
   const [state, handleSubmit] = useForm("xwpgbwod");
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
   const formRef = useRef<HTMLFormElement>(null);
 
   if (state.succeeded && !showModal) {
@@ -40,7 +42,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-[10px] uppercase font-bold tracking-widest text-white/30">Email</p>
-                <p className="font-medium">hola@duhvia.com</p>
+                <p className="font-medium">duhvia.agencia@gmail.com</p>
               </div>
             </div>
             <div className="flex items-center gap-4 text-white/60">
@@ -49,7 +51,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-[10px] uppercase font-bold tracking-widest text-white/30">WhatsApp</p>
-                <p className="font-medium">+51 987 654 321</p>
+                <p className="font-medium">+51 903099055</p>
               </div>
             </div>
             <div className="flex items-center gap-4 text-white/60">
@@ -58,7 +60,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-[10px] uppercase font-bold tracking-widest text-white/30">Ubicación</p>
-                <p className="font-medium">Arequipa, Perú / Remoto</p>
+                <p className="font-medium">Arequipa, Perú</p>
               </div>
             </div>
           </div>
@@ -138,7 +140,10 @@ export default function Contact() {
               <h2 className="text-3xl font-black italic uppercase">¡Recibido!</h2>
               <p className="text-white/60">Hemos recibido tu mensaje. Un estratega de Duhvia se pondrá en contacto contigo en las próximas 24 horas.</p>
               <button
-                onClick={() => setShowModal(false)}
+                onClick={() => {
+                  setShowModal(false);
+                  navigate("/");
+                }}
                 className="btn btn-secondary w-full"
               >
                 Cerrar
